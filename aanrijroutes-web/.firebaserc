@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "aanrijroutes-dev": {
+      "hosting": {
+        "aanrijroutes-web": [
+          "aanrijroutes-dev"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "aanrijroutes-dev"
+  }
+}

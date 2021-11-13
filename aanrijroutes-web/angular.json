@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "aanrijroutes-web:build:production",
+            "firebaseProject": "aanrijroutes-dev",
+            "firebaseHostingSite": "aanrijroutes-dev"
+          }
         }
       }
     }
