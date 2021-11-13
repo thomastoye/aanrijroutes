@@ -1,3 +1,19 @@
 agm-map {
-  height: 100vh;
+  height: calc(100vh - 100px);
+}
+
+div.top-bar {
+  height: 100px
+}
+
+mat-form-field.route-selector {
+  margin-left: 30px;
+}
+
+em.route-name {
+  margin-left: 30px;
+}
+
+button.new-route-button {
+  margin-left: 30px;
 }

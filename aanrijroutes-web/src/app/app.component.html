@@ -1,23 +1,36 @@
-<h1>{{ title }}</h1>
+<div class="top-bar">
+  <button mat-raised-button class="new-route-button" (click)="newRouteDialog()">Nieuwe Route</button>
+  <mat-form-field class="route-selector">
+    <mat-label>Route</mat-label>
+    <mat-select [value]="(selectedItem$ | async)">
+      <mat-option *ngFor="let route of (items$ | async)" (onSelectionChange)="changeSelectedRoute(route)">
+        {{ route.id }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <em class="route-name">{{ (selectedItem$ | async)?.id }}</em>
+</div>
 
 <agm-map
+  *ngIf="(selectedItem$ | async); let selectedItem"
   [latitude]="lat"
   [longitude]="lng"
   [zoom]="17"
-  (mapClick)="mapClicked($event)"
+  (mapClick)="mapClicked($event, selectedItem)"
 >
   <agm-polyline [draggable]="false">
-    <agm-polyline-point *ngFor="let marker of markers"
+    <agm-polyline-point *ngFor="let marker of selectedItem.markers"
       [latitude]="marker.lat"
       [longitude]="marker.lng">
     </agm-polyline-point>
   </agm-polyline>
 
   <agm-marker
-    *ngFor="let marker of markers; index as i"
+    *ngFor="let marker of selectedItem.markers; index as i"
     [latitude]="marker.lat"
     [longitude]="marker.lng"
-    (markerClick)="markerClicked(i)"
+    (markerClick)="markerClicked(i, selectedItem)"
     [label]="(i + 1).toString()"
+    [markerDraggable]="false"
   ></agm-marker>
 </agm-map>

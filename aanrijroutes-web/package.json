@@ -24,6 +24,7 @@
     "@angular/router": "~13.0.0",
     "@types/google.maps": "^3.46.1",
     "firebase": "^9.4.0",
+    "firebase-tools": "^9.22.0",
     "rxfire": "^6.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
